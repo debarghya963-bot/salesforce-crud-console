@@ -7,7 +7,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "node server/index.js",
     "client": "vite client --host 0.0.0.0",
-    "build": "vite build client --outDir client/dist",
+    "build": "vite build client",
     "start": "node server/index.js"
   },
 "dependencies": {

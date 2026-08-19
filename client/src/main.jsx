@@ -188,8 +188,7 @@ function App() {
             </p>
               <a
                 className="primary button-link"
-                href="http://localhost:3000/oauth/login"
-              >
+                href="/oauth/login"              >
                 Log INTO Salesforce Org
               </a>           
               <div className="security-note">

@@ -97,8 +97,15 @@ function getConfig() {
     clientId: process.env.SF_CLIENT_ID,
     clientSecret: process.env.SF_CLIENT_SECRET,
     loginUrl: process.env.SF_LOGIN_URL.replace(/\/$/, ""),
-    redirectUri: process.env.SF_REDIRECT_URI
-  };
+    redirectUri: process.env.SF_REDIRECT_URI || "http://localhost:3000/oauth/callback",  };
+    const config = {
+    clientId: process.env.SF_CLIENT_ID,
+    clientSecret: process.env.SF_CLIENT_SECRET,
+    loginUrl: process.env.SF_LOGIN_URL || "https://login.salesforce.com",
+    redirectUri: process.env.SF_REDIRECT_URI || "http://localhost:3000/oauth/callback"
+};
+
+console.log("SF_REDIRECT_URI:", process.env.SF_REDIRECT_URI);
 }
 
 function requireAuth(req, res, next) {
@@ -277,7 +284,7 @@ req.session.save((saveError) => {
 
   console.log("SESSION SAVED SUCCESSFULLY");
 
-res.redirect("http://localhost:3000");
+res.redirect("/");
 });
   } catch (error) {
     console.error(error);

@@ -3,20 +3,28 @@ services:
     name: salesforce-crud-console
     runtime: node
     plan: free
+
     buildCommand: npm install && npm run build
     startCommand: npm start
+
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 10000
+
       - key: SF_CLIENT_ID
         sync: false
+
       - key: SF_CLIENT_SECRET
         sync: false
+
       - key: SF_LOGIN_URL
         value: https://login.salesforce.com
+
       - key: SF_REDIRECT_URI
         sync: false
+
       - key: SESSION_SECRET
         generateValue: true
+
+      - key: CLIENT_URL
+        sync: false
